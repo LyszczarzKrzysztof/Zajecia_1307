@@ -23,7 +23,7 @@ public class Main {
         System.out.println(osoba10);
         System.out.println(osoba20);
 
-        przelew1.placenie(1100, osoba10, osoba20);
+        przelew1.placenie(800, osoba10, osoba20);
 
         System.out.println(osoba10);
         System.out.println(osoba20);
