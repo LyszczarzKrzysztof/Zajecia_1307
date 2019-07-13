@@ -1,3 +1,5 @@
+package portfele;
+
 public class Bank {
 
     private Osoba osoba;

@@ -1,3 +1,5 @@
+package portfele;
+
 public class Pieniadze {
     private int kwota;
     private String waluta;

@@ -1,3 +1,5 @@
+package portfele;
+
 public class Portfel {
 
     private Pieniadze zlotowki;
