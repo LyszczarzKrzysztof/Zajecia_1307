@@ -1,2 +1,8 @@
-.idea\
-Zajecia1307_2
+# InteliJ
+*.iml
+.editorconfig
+.idea
+
+# Target Directory
+/target/
+/*/target/
