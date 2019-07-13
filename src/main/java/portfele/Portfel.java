@@ -16,17 +16,15 @@ public class Portfel {
             System.out.println("Wyplacono: " + zaplacono);
             return true;
         } else {
-            int staryStan = zlotowki.getKwota();
-            zlotowki.setKwota(0);
-            System.out.println("Zabrakło kasy. Wyplaciles: " + (staryStan));
             return false;
         }
     }
 
     public boolean przelewPrzychodzacy(int zaplacono) {
         zlotowki.setKwota(zlotowki.getKwota() + zaplacono);
-        return true;
-    }
+            return true;
+        }
+
 
     @Override
     public String toString() {
