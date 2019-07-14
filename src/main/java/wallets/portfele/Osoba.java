@@ -1,4 +1,4 @@
-package portfele;
+package wallets.portfele;
 
 public class Osoba {
     private String imie;

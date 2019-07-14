@@ -18,7 +18,7 @@ public class PatternMatcherMain {
         line = entry.nextLine();
 
 
-        String patternText = "([A-Z][a-z]*) +([A-Z][a-z]*)";
+        String patternText = "([A-Z][a-z]*)\\s+([A-Z][a-z]*)";  // java wymaga backslasha przed backslashem
 
         Pattern pattern = Pattern.compile(patternText);
         Matcher matcher = pattern.matcher(line);
