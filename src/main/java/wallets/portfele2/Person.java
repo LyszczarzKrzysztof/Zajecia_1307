@@ -24,7 +24,7 @@ public class Person {
     }
 
     public void payToPerson(Person person, Money money) {
-        this.wallet.payOut(money);
+        wallet.payOut(money);
         person.acceptMoneyFromAnyone(money);
     }
 
