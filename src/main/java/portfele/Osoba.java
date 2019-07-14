@@ -17,12 +17,12 @@ public class Osoba {
     }
 
 
-    public boolean polecenieWyplaty(int ile, Osoba osoba2){
+    public boolean polecenieWyplaty(int ile, Osoba osoba2) {
 
-        if(portfel.przelewWychodzacy(ile)){
+        if (portfel.przelewWychodzacy(ile)) {
             osoba2.portfel.przelewPrzychodzacy(ile);
             return true;
-        }else{
+        } else {
             System.out.println("Nie ma tyle pieniedzy");
             return false;
         }
@@ -32,6 +32,7 @@ public class Osoba {
     @Override
     public String toString() {
         return imie + " " + nazwisko + " " + portfel;
+
     }
 
 }
