@@ -15,14 +15,15 @@ public class Wallet {
     }
 
     public void payIn(Money money){
-        money.acceptMoney(money);
+        zlotes.acceptMoney(money);
     }
 
     public void payOut(Money money){
-            money.payMoney(money);
+            zlotes.payMoney(money);
     }
 
     public String balance(){
         return "Na koncie posiadasz: "+zlotes;
     }
+
 }
