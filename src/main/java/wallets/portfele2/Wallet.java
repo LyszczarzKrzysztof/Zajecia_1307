@@ -1,29 +1,27 @@
 package wallets.portfele2;
 
-import java.util.stream.Stream;
-
 public class Wallet {
-    private Money zlotes;
+    private Money money;
 
     @Override
     public String toString(){
-        return ""+zlotes;
+        return ""+ money;
     }
 
     public Wallet(Money zlotes) {
-        this.zlotes = zlotes;
+        this.money = zlotes;
     }
 
     public void payIn(Money money){
-        zlotes.acceptMoney(money);
+        this.money.acceptMoney(money);
     }
 
-    public void payOut(Money money){
-            zlotes.payMoney(money);
+    public void payOut(Money money) throws Exception {
+            this.money.payMoney(money);
     }
 
     public String balance(){
-        return "Na koncie posiadasz: "+zlotes;
+        return "Na koncie posiadasz: "+ money;
     }
 
 }

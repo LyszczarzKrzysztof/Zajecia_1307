@@ -17,7 +17,7 @@ public class Wallets2Main {
         log("Osoba 1: "+person1.toString());
         log("Osoba 2: "+person2.toString());
 
-        person1.payToPerson(person2,new Money(BigDecimal.valueOf(100),Currency.PLN));
+        person1.payToPerson(person2,new Money(BigDecimal.valueOf(1001),Currency.PLN));
 
         log("Osoba 1: "+person1.toString());
         log("Osoba 2: "+person2.toString());

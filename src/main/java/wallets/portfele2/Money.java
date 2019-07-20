@@ -19,17 +19,21 @@ public class Money {
     }
 
     public Money acceptMoney(Money money) {
-        amount = money.amount.add(this.amount);
+        this.amount = this.amount.add(money.amount);
         return money;
     }
 
-    public Money payMoney(Money money){
-        amount=this.amount.subtract(money.amount);
-        return money;
+    public Money payMoney(Money money) throws Exception {
+        if(canYouAfford(money)) {
+            this.amount = this.amount.subtract(money.amount);
+            return money;
+        }else{
+            throw new Exception();
+        }
     }
 
     public boolean canYouAfford(Money money){
-        if(this.amount.compareTo(money.amount)==1){
+        if(this.amount.compareTo(money.amount)>=0){
             return true;
         }else{
             return false;

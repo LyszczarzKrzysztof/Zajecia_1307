@@ -24,13 +24,17 @@ public class Person {
     }
 
     public void payToPerson(Person person, Money money) {
-        wallet.payOut(money);
-        person.acceptMoneyFromAnyone(money);
+        try {
+            this.wallet.payOut(money);
+            person.acceptMoneyFromAnyone(money);
+        }catch (Exception e){
+            System.out.println("Nie stać Cię!");
+        }
     }
 
     public void acceptMoneyFromAnyone(Money money) {
 
-        wallet.payIn(money);
+        this.wallet.payIn(money);
 
 //        if(doYouHaveWallet(wallet)) {
 //            wallet.payIn(money);
