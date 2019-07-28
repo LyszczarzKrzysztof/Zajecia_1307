@@ -1,5 +1,8 @@
 package wallets.portfele2;
 
+import wallets.portfele2.exception.JestesBiednyException;
+import wallets.portfele2.exception.NieTaWalutaException;
+
 public class Person {
     private Wallet wallet;
 
@@ -27,8 +30,10 @@ public class Person {
         try {
             this.wallet.payOut(money);
             person.acceptMoneyFromAnyone(money);
-        }catch (Exception e){
+        }catch (JestesBiednyException e){
             System.out.println("Nie stać Cię!");
+        } catch (NieTaWalutaException e) {
+            System.out.println("Nie ta waluta");
         }
     }
 

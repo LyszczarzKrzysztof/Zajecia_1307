@@ -1,27 +1,46 @@
 package wallets.portfele2;
 
+
+import wallets.portfele2.exception.JestesBiednyException;
+import wallets.portfele2.exception.NieTaWalutaException;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class Wallet {
-    private Money money;
+
+
+
+        Map<Currency,Money> mapOfMoneyInWallet;
+
 
     @Override
     public String toString(){
-        return ""+ money;
+        return ""+ mapOfMoneyInWallet;
     }
 
-    public Wallet(Money zlotes) {
-        this.money = zlotes;
+    public Wallet() {
+        this.mapOfMoneyInWallet=new HashMap<>();
     }
 
     public void payIn(Money money){
-        this.money.acceptMoney(money);
+        if(mapOfMoneyInWallet.containsKey(money.getCurrency())) {
+            mapOfMoneyInWallet.get(money.getCurrency()).acceptMoney(money);
+        }else{
+            mapOfMoneyInWallet.put(money.getCurrency(),money);
+        }
     }
 
-    public void payOut(Money money) throws Exception {
-            this.money.payMoney(money);
+    public void payOut(Money money) throws JestesBiednyException, NieTaWalutaException {
+            mapOfMoneyInWallet.getOrDefault(money.getCurrency(),
+                    new Money(new BigDecimal(0),money.getCurrency())).payMoney(money);
     }
 
     public String balance(){
-        return "Na koncie posiadasz: "+ money;
+        return "Na koncie posiadasz: "+ mapOfMoneyInWallet;
     }
+
 
 }
