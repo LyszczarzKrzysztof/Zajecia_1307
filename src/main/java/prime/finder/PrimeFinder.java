@@ -34,6 +34,8 @@ public class PrimeFinder {
                 .filter(l -> l % 10 == 3)
                 .map(l -> l * l)
                 .boxed()
+                //nizej bierze wartosc obojetna dla dodawania i dodaje do nich kazdy przefiltrowany element listy
+                // dla mnozenia przez wszystkie wartosc obojetna byla by 1
                 .reduce(Long.valueOf(0), (currentSum, currentElement) -> currentSum + currentElement);
     }
 

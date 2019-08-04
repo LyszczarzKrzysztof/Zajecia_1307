@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <property name="LOG_DIR" value="target"/>
+    <appender name="FILE_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}\warningLogs.log</file>
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <property name="LOG_DIR" value="target"/>
+    <appender name="MONEY_FILE_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}\debugLogs.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name = "wallets.portfele2" level = "DEBUG">
+        <appender-ref ref="MONEY_FILE_LOG"/>
+        <appender-ref ref="FILE_LOG"/>
+    </logger>
+
+
+<!--    <logger name = "wallets.portfele2" level = "WARN">-->
+<!--        <appender-ref ref="FILE_LOG"/>-->
+<!--    </logger>-->
+
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

@@ -1,14 +1,35 @@
 package wallets.portfele2;
 
+import com.sun.org.glassfish.gmbal.ManagedObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import wallets.portfele2.exception.JestesBiednyException;
 import wallets.portfele2.exception.NieTaWalutaException;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 public class Money {
 
+
     private BigDecimal amount;
     private Currency currency;
+
+    private BigDecimal PLNtoUSD = new BigDecimal(3.70);
+    private BigDecimal EURtoUSD = new BigDecimal(0.95);
+
+    private Map<Currency, BigDecimal> mapOfCurrencyRates;
+
+    public Map<Currency, BigDecimal> setMapOfCurrencyRates(){
+        mapOfCurrencyRates.put(Currency.PLN,PLNtoUSD);
+        mapOfCurrencyRates.put(Currency.EUR,EURtoUSD);
+
+        return mapOfCurrencyRates;
+    }
+
+    public Map<Currency, BigDecimal> getMapOfCurrencyRates() {
+        return mapOfCurrencyRates;
+    }
 
     @Override
     public String toString(){
