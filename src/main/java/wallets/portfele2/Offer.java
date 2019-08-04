@@ -60,8 +60,20 @@ public class Offer {
     }
 
     public Money howMuchWillYouPayForThis(Offer offer){
+        BigDecimal minPrice = makeUSD(offer.getPrices().get(0)).getAmount();
+        Currency minCurrency = offer.getPrices().get(0).getCurrency();
+        BigDecimal minAmount = offer.getPrices().get(0).getAmount();
 
-       return offer.getPrices();
+        if(hasLowerPrice(offer)==true){
+            for(Money o: prices){
+                if (makeUSD(o).getAmount().subtract(minPrice).compareTo(new BigDecimal(0))<0){
+                    minCurrency = o.getCurrency();
+                    minAmount = o.getAmount();
+                }
+            }
+        }
+
+        return new Money(minAmount,minCurrency);
     }
 
 
